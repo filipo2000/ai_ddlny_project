@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+  <head>
+    <title>English → SQL UI</title>
+  </head>
+  <body>
+    <h1>English → SQL Query</h1>
+    <form method="POST">
+      <input type="text" name="english_query" size="50" placeholder="Enter your English query">
+      <button type="submit">Run</button>
+    </form>
+
+    {% if result %}
+      <h3>Query Result:</h3>
+      <table border="1">
+        <tr>
+          {% for key in result[0].keys() %}
+            <th>{{ key }}</th>
+          {% endfor %}
+        </tr>
+        {% for row in result %}
+          <tr>
+            {% for value in row.values() %}
+              <td>{{ value }}</td>
+            {% endfor %}
+          </tr>
+        {% endfor %}
+      </table>
+    {% endif %}
+
+    {% if error_message %}
+      <h3 style="color:red;">Error:</h3>
+      <pre>{{ error_message }}</pre>
+    {% endif %}
+  </body>
+</html>

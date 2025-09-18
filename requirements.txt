@@ -1,0 +1,11 @@
+streamlit
+sqlalchemy
+psycopg2-binary
+pandas
+openai
+langchain
+python-dotenv
+langchain-openai
+fastapi
+uvicorn
+flask
